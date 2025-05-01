@@ -38,7 +38,6 @@ public class UserController {
     public Register updateUser(@PathVariable String id, @RequestBody Register register) {
         return userRepo.findById(id).map(user -> {
             user.setEmail(register.getEmail());
-            user.setPassword(register.getPassword());
             user.setUsername(register.getUsername());
             return userRepo.save(user);
         }).orElseThrow(()-> new RuntimeException("User not found"));

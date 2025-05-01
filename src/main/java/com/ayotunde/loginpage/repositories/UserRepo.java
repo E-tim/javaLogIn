@@ -2,6 +2,8 @@ package com.ayotunde.loginpage.repositories;
 
 import com.ayotunde.loginpage.model.Register;
 import org.springframework.data.mongodb.repository.MongoRepository;
-import org.springframework.data.repository.CrudRepository;
+import java.util.Optional;
 
-public interface UserRepo extends MongoRepository<Register, String> {}
+public interface UserRepo extends MongoRepository<Register, String> {
+    Optional<Register> findByEmail(String email);  // 🔥 New method
+}
